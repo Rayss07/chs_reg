@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/
 
 import os , sys
 sys.path.append('/home/adminreg/chs_reg')
+sys.path.append('/home/adminreg/chs_reg/')
 sys.path.append('/home/adminreg/chs_reg/static')
 from django.core.wsgi import get_wsgi_application
 
