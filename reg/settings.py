@@ -25,7 +25,7 @@ ADMIN_MEDIA_PREFIX = '/admin_media/'
 SECRET_KEY = '^l!^_=lzh(pm+@-bu$la-+au-7h2eu!tc=r!u8jn06g%#ic&m3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['61.7.236.53','confirm.chs.ac.th','127.0.0.1','localhost','robot.chs.ac.th']
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'confirm'
 ]
 
 MIDDLEWARE = [

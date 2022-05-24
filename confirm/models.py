@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+class UserList(models.Model):
+    idcard = models.CharField(max_length=13)
+    name = models.TextField()
+    surname = models.TextField()
+    gender = models.TextField()
+    tel = models.TextField()
+    email = models.TextField()
+    birthdate = models.TextField()
+    type = models.TextField()
