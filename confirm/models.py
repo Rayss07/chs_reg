@@ -9,3 +9,4 @@ class UserList(models.Model):
     email = models.TextField()
     birthdate = models.TextField()
     type = models.TextField()
+    activated = models.TextField()
