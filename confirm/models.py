@@ -13,3 +13,15 @@ class UserList(models.Model):
 
     #def save(self,*args,**kwargs):
     #    super().save()
+class Address(models.Model):
+    idcard = models.CharField(max_length=13)
+    home_id = models.TextField()
+    village_id = models.TextField()
+    village_name = models.TextField()
+    parish = models.TextField()
+    alley = models.TextField()
+    road = models.TextField()
+    district = models.TextField()
+    city = models.TextField()
+    zip_code = models.TextField()
+    level_address = models.TextField()

@@ -41,6 +41,15 @@ def logout(request):
         pass
     return redirect('/')
 
+def activate(request):
+    idcard = request.session.get('current_user')
+    cur = UserList.objects.get(idcard=idcard)
+    current = UserList.objects.filter(idcard=idcard)
+    alluser = UserList.objects.filter(activated=0)
+    if cur.type == "เจ้าหน้าที่":
+        return render(request,'activate.html',{'user':current,'alluser':alluser})
+    else:
+        return redirect('/')
 
 def registerResult(request):
     idcard = request.POST.get('idcard')

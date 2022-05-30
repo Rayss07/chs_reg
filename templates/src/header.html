@@ -20,7 +20,7 @@
       <li>
         {% if request.session.current_user %}
         {% for u in user %}
-        <a>{{ u.idcard }} {{ u.name }}  {{ u.surname }} </a>
+        <a>{{ u.type }} {{ u.name }} {{ u.surname }} </a>
         {% endfor %}
         {% endif %}
       </li>
