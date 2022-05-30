@@ -1,0 +1,90 @@
+<head>
+    <title>REGISTER | CHS REG</title>
+  </head>
+  
+  {% include 'src/header.html' %}
+
+<div class="container">
+    <h2>ลงชื่อเข้าใช้</h2>
+    <form class="form-horizontal" action="../registerResult/" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="idcard">เลขประจำตัวประชาชน:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="idcard" placeholder="16599XXXXXXXX" name="idcard">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">ชื่อ:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name" placeholder="อัครภพ" name="name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="surname">นามสกุล:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="surname" placeholder="มากะนัดถ์" name="surname">
+        </div>
+      </div>
+
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10 ">
+            <div class="radio-inline">
+                <label><input type="radio" value="หญิง" name="gender" checked>หญิง</label>
+              </div>
+              <div class="radio-inline">
+                <label><input type="radio" value="ชาย" name="gender">ชาย</label>
+              </div>
+              <div class="radio-inline disabled">
+                <label><input type="radio" value="อื่นๆ" name="gender" disabled>อื่นๆ</label>
+              </div> 
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="tel">เบอร์โทรศัพท์:</label>
+        <div class="col-sm-10">          
+          <input type="text" class="form-control" id="tel" placeholder="09XXXXXXXX" name="tel">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">อีเมลล์:</label>
+        <div class="col-sm-10">          
+          <input type="email" class="form-control" id="email" placeholder="abcdefgh@gmail.com" name="email">
+        </div>
+      </div>
+
+      <div class="form-group">    
+        <label class="control-label col-sm-2" for="birthdate">วันเกิด (ค.ศ.) :</label>
+        <div class="col-sm-10">   
+        <input placeholder="Select date" type="date" id="birthdate" name="birthdate" class="form-control">
+      </div>
+     </div>
+
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="radio-inline">
+                <label><input type="radio" value="นักเรียน" name="type" checked>นักเรียน</label>
+              </div>
+              <div class="radio-inline">
+                <label><input type="radio" value="ผู้ปกครอง" name="type">ผู้ปกครอง</label>
+              </div>
+              <div class="radio-inline disabled">
+                <label><input type="radio" value="ครู" name="type" disabled>ครู</label>
+              </div> 
+        </div>
+      </div>
+
+
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">ส่งฟอร์ม</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  {% include 'src/footer.html' %}

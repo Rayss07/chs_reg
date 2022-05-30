@@ -7,6 +7,9 @@ def home(request):
 def registerpage(request):
     return render(request,'register.html')
 
+def loginpage(request):
+    return render(request,'login.html')
+
 def registerResult(request):
     idcard = request.POST.get('idcard')
     name = request.POST.get('name')
