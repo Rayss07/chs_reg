@@ -1,3 +1,4 @@
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -10,14 +11,25 @@
       <a class="navbar-brand" href="#">CHS REG</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="../">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li class="active"><a href="../">หน้าหลัก</a></li>
+      <li><a href="#">ข้อมูลของฉัน</a></li>
+      <li><a href="#">มอบตัว</a></li>
+      <li><a href="#">ชุมนุม</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li>
+        {% if request.session.current_user %}
+        {% for u in user %}
+        <a>{{ u.idcard }} {{ u.name }}  {{ u.surname }} </a>
+        {% endfor %}
+        {% endif %}
+      </li>
+      {% if request.session.current_user is None %}
       <li><a href="../register/"><span class="glyphicon glyphicon-user"></span> สมัครสมาชิก</a></li>
       <li><a href="../login/"><span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a></li>
+      {% else %}
+      <li><a href="../logout/"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>

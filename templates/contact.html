@@ -1,0 +1,90 @@
+{% load static %}
+<head>
+    <title>CONTACT | CHS REG</title>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
+</style>
+  </head>
+
+  
+  {% include 'src/header.html' %}
+
+  <body>
+
+    <h2 style="text-align:center">User Profile Card</h2>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">    
+                <div class="card">
+                <img src="{% static 'img/arnon.png' %}"  alt="Arnon" style="width:100%">
+                <h1>อานนท์  มากมี</h1>
+                <p class="title">ผู้พัฒนา</p>
+                <p>0817402437</p>
+                <div style="margin: 24px 0;">
+                <a href="https://www.facebook.com/Akkharaphop.Makanat"><i class="fa fa-facebook"></i></a> 
+                </div>
+                <p><button>Contact</button></p>
+            </div>
+        </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <img src="{% static 'img/oakkharaphop.bmp' %}"  alt="Oakkharaphop" style="width:100%">
+                        <h1>อัครภพ  มากะนัดถ์</h1>
+                        <p class="title">ผู้พัฒนา</p>
+                        <p>0947214185</p>
+                        <div style="margin: 24px 0;">
+                        <a href="https://www.facebook.com/Akkharaphop.Makanat"><i class="fa fa-facebook"></i></a> 
+                        </div>
+                        <p><button>Contact</button></p>
+                    </div>
+            </div>
+            <div class="col-sm-3">.col-sm-3</div>
+            <div class="col-sm-3">.col-sm-3</div>
+            
+        </div>
+      </div>
+
+
+    </body>

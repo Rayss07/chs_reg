@@ -1,15 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import UserList
+from django.shortcuts import redirect
+from django.contrib.sessions.backends.db import SessionStore
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    idcard = request.session.get('current_user')
+    data = UserList.objects.filter(idcard=idcard)
+    return render(request,'home.html',{'user':data})
 
 def registerpage(request):
     return render(request,'register.html')
 
 def loginpage(request):
     return render(request,'login.html')
+
+def contact(request):
+    return render(request,'contact.html')
 
 def loginResult(request):
     idcard = request.POST.get('idcard')
@@ -19,14 +26,20 @@ def loginResult(request):
         current = UserList.objects.get(idcard=idcard)
         
         if current.birthdate == birthdate:
-            print("TRUE")
-            return HttpResponse("TRUE")
+            request.session['current_user'] = idcard
+            return redirect('/')
         else:
             print("FALSE")
-            return HttpResponse("FALSE")
+            return render(request,'login.html',{'status':"รหัสผ่านผิด"})
     except UserList.DoesNotExist:
-        return HttpResponse("USER DOES NOT EXIST")
+        return render(request,'login.html',{'status':"ไม่พบผู้ใช้"})
 
+def logout(request):
+    try:
+        del request.session['current_user']
+    except KeyError:
+        pass
+    return redirect('/')
 
 
 def registerResult(request):
@@ -40,7 +53,7 @@ def registerResult(request):
     type = request.POST.get('type')
 
     if UserList.objects.filter(idcard=idcard).exists():
-        print("DUPLICATE")
+        return render(request,'register.html',{'status':"มีเลขประจำตัวผู้ใช้งานนี้ในระบบแล้ว"})
     else:
         UserList.objects.create(
         idcard = idcard,
@@ -52,4 +65,4 @@ def registerResult(request):
         birthdate = birthdate,
         type = type
         )
-    return render(request,'registerResult.html',{'idcard':idcard,'name':name,'surname':surname,'gender':gender,'tel':tel,'email':email,'birthdate':birthdate,'type':type})
+        return render(request,'registerResult.html',{'idcard':idcard,'name':name,'surname':surname,'gender':gender,'tel':tel,'email':email,'birthdate':birthdate,'type':type})

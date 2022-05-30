@@ -5,8 +5,13 @@
 {% include 'src/header.html' %}
 
 <div class="container">
-  <h3>หน้าหลัก 2</h3>
-  Test GitHub
+  {% if request.session.current_user %}
+  {% for u in user %}
+  {% if u.activated == 0 %}
+  <a>บัญชีของคุณยังไม่ได้รับการยืนยัน</a>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
 </div>
 
 {% include 'src/footer.html' %}
