@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import UserList
+from .models import UserList , Info_Basic
 from django.shortcuts import redirect
 from django.contrib.sessions.backends.db import SessionStore
 # Create your views here.
@@ -50,6 +50,25 @@ def activate(request):
         return render(request,'activate.html',{'user':current,'alluser':alluser})
     else:
         return redirect('/')
+
+def activate_update(request,id):
+    selected_user = UserList.objects.get(idcard=id)
+    selected_user.activated = 1
+    selected_user.save()
+    return redirect('/activate')
+
+def activate_delete(request,id):
+    selected_user = UserList.objects.get(idcard=id)
+    selected_user.delete()
+    return redirect('/activate')
+
+def myinfo(request):
+    idcard = request.session.get('current_user')
+    data = UserList.objects.filter(idcard=idcard)
+    return render(request,'myinfo.html',{'user':data})
+
+def myinfo_save(request,id):
+    pass
 
 def registerResult(request):
     idcard = request.POST.get('idcard')

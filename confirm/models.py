@@ -13,7 +13,26 @@ class UserList(models.Model):
 
     #def save(self,*args,**kwargs):
     #    super().save()
-class Address(models.Model):
+class Info_Basic(models.Model):
+    idcard = models.CharField(max_length=13)
+    studentid = models.TextField()
+    classroom_grade = models.TextField()
+    classroom_room = models.TextField()
+    prefix = models.TextField()
+    name_eng = models.TextField()
+    surname_eng = models.TextField()
+    birthplace = models.TextField()
+    birthprovince = models.TextField()
+    bloodtype = models.TextField()
+    nationality = models.TextField()
+    ethenic = models.TextField()
+    religion = models.TextField()
+    language_main = models.TextField()
+    language_other = models.TextField()
+    latest_school = models.TextField()
+    latest_school_province = models.TextField()
+
+class Info_Address(models.Model):
     idcard = models.CharField(max_length=13)
     home_id = models.TextField()
     village_id = models.TextField()

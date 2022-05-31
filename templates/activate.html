@@ -3,3 +3,37 @@
   </head>
   
   {% include 'src/header.html' %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">surname</th>
+        <th scope="col">gender</th>
+        <th scope="col">tel</th>
+        <th scope="col">email</th>
+        <th scope="col">birthdate</th>
+        <th scope="col">surname</th>
+      </tr>
+    </thead>
+    {% for user in alluser %}
+    <tbody>
+      <tr>
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.idcard}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.surname}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.tel}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.birthdate}}</td>
+        <td>{{user.type}}</td>
+
+        <td><button class="btn btn-success" onclick="window.location.href='../activate/update/{{user.idcard}}'">อนุมัติ</button></td>
+        <td><button class="btn btn-danger" onclick="window.location.href='../activate/delete/{{user.idcard}}'">ลบ</button></td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
