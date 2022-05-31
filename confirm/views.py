@@ -16,7 +16,9 @@ def loginpage(request):
     return render(request,'login.html')
 
 def contact(request):
-    return render(request,'contact.html')
+    idcard = request.session.get('current_user')
+    data = UserList.objects.filter(idcard=idcard)
+    return render(request,'contact.html',{'user':data})
 
 def loginResult(request):
     idcard = request.POST.get('idcard')
@@ -79,6 +81,7 @@ def registerResult(request):
     email = request.POST.get('email')
     birthdate = request.POST.get('birthdate')
     type = request.POST.get('type')
+    subtype = request.POST.get('subtype')
 
     if UserList.objects.filter(idcard=idcard).exists():
         return render(request,'register.html',{'status':"มีเลขประจำตัวผู้ใช้งานนี้ในระบบแล้ว"})
@@ -93,4 +96,4 @@ def registerResult(request):
         birthdate = birthdate,
         type = type
         )
-        return render(request,'registerResult.html',{'idcard':idcard,'name':name,'surname':surname,'gender':gender,'tel':tel,'email':email,'birthdate':birthdate,'type':type})
+        return render(request,'registerResult.html',{'idcard':idcard,'name':name,'surname':surname,'gender':gender,'tel':tel,'email':email,'birthdate':birthdate,'type':type,'subtype':subtype})

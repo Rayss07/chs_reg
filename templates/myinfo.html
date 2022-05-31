@@ -14,7 +14,7 @@
             {% csrf_token %}
               <div class="form-group">
                 <label class="control-label" for="idcard">เลขประจำตัวประชาชน</label> 
-                <input id="idcard" name="idcard" type="text" required="required" class="form-control">
+                <input id="idcard" value="{{request.session.current_user}}" name="idcard" type="text" required="required" class="form-control">
               </div>
               <div class="form-group">
                 <label for="studentid" class="control-label">เลขประจำตัวนักเรียนเดิม (นักเรียนเดิมเท่านั้น)</label> 

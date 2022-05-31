@@ -9,6 +9,7 @@ class UserList(models.Model):
     email = models.TextField()
     birthdate = models.TextField()
     type = models.TextField()
+    subtype = models.TextField(default="อื่นๆ")
     activated = models.BooleanField(default=False)
 
     #def save(self,*args,**kwargs):

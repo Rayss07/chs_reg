@@ -66,24 +66,35 @@
 
       <div class="form-group">        
         <div class="col-sm-offset-2 col-sm-10">
+          <div class="radio-inline">
+              <label><input type="radio" value="นักเรียน" name="type" checked>นักเรียน</label>
+            </div>
             <div class="radio-inline">
-                <label><input type="radio" value="นักเรียน" name="type" checked>นักเรียน</label>
-              </div>
-              <div class="radio-inline">
-                <label><input type="radio" value="ผู้ปกครอง" name="type">ผู้ปกครอง</label>
-              </div>
-              <div class="radio-inline disabled">
-                <label><input type="radio" value="ครู" name="type" disabled>ครู</label>
-              </div> 
-              <div class="radio-inline disabled">
-                <label><input type="radio" value="ครู" name="type" disabled>เจ้าหน้าที่</label>
-              </div> 
-        </div>
+              <label><input type="radio" value="ผู้ปกครอง" name="type">ผู้ปกครอง</label>
+            </div>
+            <div class="radio-inline disabled">
+              <label><input type="radio" value="ครู" name="type" disabled>ครู</label>
+            </div> 
+            <div class="radio-inline disabled">
+              <label><input type="radio" value="ครู" name="type" disabled>เจ้าหน้าที่</label>
+            </div> 
+      </div>
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="radio-inline">
+            <label><input type="radio" value="นักเรียนใหม่" name="subtype" checked>นักเรียนใหม่</label>
+          </div>
+          <div class="radio-inline">
+            <label><input type="radio" value="นักเรียนเดิม" name="subtype">นักเรียนเดิม</label>
+          </div>
+          <div class="radio-inline">
+            <label><input type="radio" value="อื่นๆ" name="subtype">อื่นๆ</label>
+          </div>
+    </div>
       </div>
 
       <center><p style="color:red"> {{ status }}</p></center>
       {% if status is not None %}
-      <center><p style="color:red"> หากประสบปัญหา สามารถติดต่อผู้ดูแลระบบได้ที่ </p></center>
+      <center><p style="color:red"> หากประสบปัญหา สามารถติดต่อผู้ดูแลระบบได้ที่ <a href="/contact/">http://confirm.chs.ac.th/contact/</a> </p></center>
       {% endif %}
       <div class="form-group">        
         <div class="col-sm-offset-2 col-sm-10">
