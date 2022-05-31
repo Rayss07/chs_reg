@@ -12,6 +12,9 @@ class UserList(models.Model):
     subtype = models.TextField(default="อื่นๆ")
     activated = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.idcard + ' ' + self.name + ' ' + self.surname
+
     #def save(self,*args,**kwargs):
     #    super().save()
 class Info_Basic(models.Model):
