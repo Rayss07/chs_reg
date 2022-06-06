@@ -31,4 +31,5 @@ urlpatterns = [
     path('activate/update/<int:id>', views.activate_update),
     path('activate/delete/<int:id>', views.activate_delete),
     path('contact/', views.contact),
+    path('testpage/', views.testpage),
 ]
