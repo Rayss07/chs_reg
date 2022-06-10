@@ -42,13 +42,15 @@
           {% for u in user %}
   
           {% if u.type == "เจ้าหน้าที่" %}
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">จัดการ
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              จัดการ
+            </a>
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="/activate">อนุมัติผู้ใช้ใหม่</a></li>
-              <li><a href="#">Page 1-2</a></li>
-              <li><a href="#">Page 1-3</a></li>
+              <li><a class="dropdown-item" href="/activate">อนุมัติผู้ใช้ใหม่</a></li>
+              <li><a class="dropdown-item" href="#">Page 1-2</a></li>
+              <li><a class="dropdown-item" href="#">Page 1-3</a></li>
             </ul>
           </li>
           

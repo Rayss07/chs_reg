@@ -2,6 +2,7 @@ from django.db import models
 
 class UserList(models.Model):
     idcard = models.CharField(max_length=13)
+    prefix = models.TextField(default=None)
     name = models.TextField()
     surname = models.TextField()
     gender = models.TextField()
@@ -9,7 +10,6 @@ class UserList(models.Model):
     email = models.TextField()
     birthdate = models.TextField()
     type = models.TextField()
-    subtype = models.TextField(default="อื่นๆ")
     activated = models.BooleanField(default=False)
 
     def __str__(self):

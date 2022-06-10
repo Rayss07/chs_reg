@@ -76,20 +76,21 @@ def myinfo_save(request,id):
 
 def registerResult(request):
     idcard = request.POST.get('idcard')
+    prefix = request.POST.get('prefix')
     name = request.POST.get('name')
     surname = request.POST.get('surname')
     gender = request.POST.get('gender')
     tel = request.POST.get('tel')
     email = request.POST.get('email')
     birthdate = request.POST.get('birthdate')
-    type = request.POST.get('type')
-    subtype = request.POST.get('subtype')
+    type = "นักเรียน"
 
     if UserList.objects.filter(idcard=idcard).exists():
         return render(request,'register.html',{'status':"มีเลขประจำตัวผู้ใช้งานนี้ในระบบแล้ว"})
     else:
         UserList.objects.create(
         idcard = idcard,
+        prefix = prefix,
         name = name,
         surname = surname,
         gender = gender,
@@ -98,4 +99,4 @@ def registerResult(request):
         birthdate = birthdate,
         type = type
         )
-        return render(request,'registerResult.html',{'idcard':idcard,'name':name,'surname':surname,'gender':gender,'tel':tel,'email':email,'birthdate':birthdate,'type':type,'subtype':subtype})
+        return render(request,'registerResult.html',{'idcard':idcard,'prefix':prefix,'name':name,'surname':surname,'gender':gender,'tel':tel,'email':email,'birthdate':birthdate,'type':type})

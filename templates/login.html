@@ -8,28 +8,30 @@
     <h2>ลงชื่อเข้าใช้</h2>
     <form class="form-horizontal" action="/account/loginResult/" method="post">
       {% csrf_token %}
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="idcard">เลขประจำตัวประชาชน:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="idcard" placeholder="16599XXXXXXXX" name="idcard">
-        </div>
-      </div>
+      <div class="container px-5 my-5">
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+          <div class="col-12 mb-3">
+            <label class="form-label" for="เลขประจำตัวประชาชน">เลขประจำตัวประชาชน : </label>
+            <input class="form-control" id="idcard" name="idcard" type="text" placeholder="เลขประจำตัวประชาชน" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="เลขประจำตัวประชาชน:required">เลขประจำตัวประชาชน is required.</div>
+          </div>
+          <div class="form-group">
+            <div class="col-12 mb-3"> 
+            <label class="control-label col-sm-2" for="birthdate">วันเกิด (ค.ศ.) : </label>
+            <input placeholder="Select date" type="date" id="birthdate" name="birthdate" class="form-control">
+            </div>
+          </div>
 
-      <div class="form-group">    
-        <label class="control-label col-sm-2" for="birthdate">วันเกิด (ค.ศ.) :</label>
-        <div class="col-sm-10">   
-        <input placeholder="Select date" type="date" id="birthdate" name="birthdate" class="form-control">
-      </div>
-     </div>
+        <center><p style="color:red"> {{ status }}</p></center>
 
-     <center><p style="color:red"> {{ status }}</p></center>
-
-      <div class="form-group">        
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">ส่งฟอร์ม</button>
-        </div>
+          <div class="form-group">
+              <div style="width:100%;text-align:center;">
+              <button type="submit" class="btn btn-outline-primary" action="/account/loginResult/";">เข้าสู่ระบบ</button>
+              </div>
+          </div>
+        </form>
       </div>
     </form>
-  </div>
+</div>
 
   {% include 'src/footer.html' %}
