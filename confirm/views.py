@@ -6,6 +6,7 @@ from django.contrib.sessions.backends.db import SessionStore
 # Create your views here.
 def testpage(request):
     return render(request,'test.html')
+
 def home(request):
     idcard = request.session.get('current_user')
     data = UserList.objects.filter(idcard=idcard)
