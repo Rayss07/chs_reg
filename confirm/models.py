@@ -1,5 +1,11 @@
 from django.db import models
 
+
+class Hotel(models.Model):
+	name = models.CharField(max_length=50)
+	hotel_Main_Img = models.ImageField(upload_to='images/')
+
+
 class UserList(models.Model):
     idcard = models.CharField(max_length=13)
     prefix = models.TextField(default=None)
@@ -24,6 +30,7 @@ class Info_Basic(models.Model):
     religion = models.TextField()
     nationality = models.TextField()
     ethenicity = models.TextField()
+    picture = models.FileField(upload_to='image/' ,default='')
     #picture = 
 
 class Info_Address(models.Model):

@@ -16,20 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from confirm import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('account/register/', views.registerpage),
-    path('account/registerResult/', views.registerResult),
-    path('account/login/', views.loginpage),
+    path('account/register/', views.register),
+    path('account/login/', views.login),
     path('account/logout/', views.logout),
-    path('account/loginResult/', views.loginResult),
-    path('account/myinfo/',views.myinfo),
-    path('account/myinfo/save/',views.myinfo_save),
-    path('activate/', views.activate),
-    path('activate/update/<int:id>', views.activate_update),
-    path('activate/delete/<int:id>', views.activate_delete),
-    path('contact/', views.contact),
-    path('testpage/', views.testpage),
+
+#    path('account/myinfo/',views.myinfo),
+#    path('account/myinfo/save/',views.myinfo_save),
+#    path('activate/', views.activate),
+#    path('activate/update/<int:id>', views.activate_update),
+#    path('activate/delete/<int:id>', views.activate_delete),
+#    path('contact/', views.contact),
+#    path('testpage/', views.testpage),
+#    path('testuploadpage/',views.testuploadpage),
+#    path('testupload/',views.testupload),
 ]
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
