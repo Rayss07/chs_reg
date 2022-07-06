@@ -1,0 +1,5 @@
+[Wed Jul 06 13:31:27.042701 2022] [wsgi:error] [pid 8437] [remote 171.100.236.244:49826] Not Found: /account/myinfo
+Exception ignored in: <function Local.__del__ at 0x7fbf8bb33c10>
+Traceback (most recent call last):
+  File "/home/adminreg/chs_reg/env/lib/python3.8/site-packages/asgiref/local.py", line 94, in __del__
+NameError: name 'TypeError' is not defined
